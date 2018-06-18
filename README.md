@@ -5,15 +5,15 @@ makecode BMP180 Digital Pressure Sensor package for micro:bit
 Author: shaoziyang  
 Date:   2018.Jun  
 
-![](icon.png)  
+![](https://github.com/microbit-makecode-packages/BMP180/raw/master/icon.png)  
   
-![](bmp180.jpg)
+![](https://github.com/microbit-makecode-packages/BMP180/raw/master/bmp180.jpg)
 
 ## usage
 
 open your microbit makecode project, in Add Package, paste  
 
-https://github.com/microbit-makecode-packages/BMP280  
+https://github.com/microbit-makecode-packages/BMP180  
 
 to search box then search.
 
@@ -32,7 +32,7 @@ return temperature in Celsius.
 
 ## Demo
 
-![](demo.jpg)
+![](https://github.com/microbit-makecode-packages/BMP180/raw/master/demo.jpg)
 
 ## License
 
