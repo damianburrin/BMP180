@@ -69,25 +69,25 @@ namespace BMP180 {
 
     function get(): void {
         measure()
-        X1 = (UT - AC6) * AC5 / (1 << 15)
-        X2 = MC * (1 << 11) / (X1 + MD)
+        X1 = Math.idiv((UT - AC6) * AC5, (1 << 15))
+        X2 = Math.idiv(MC * (1 << 11), (X1 + MD))
         B5 = X1 + X2
-        T = (B5 + 8) / 160
+        T = Math.idiv((B5 + 8), 160)
         B6 = B5 - 4000
-        X1 = (B2 * (B6 * B6 / (1 << 12))) / (1 << 11)
-        X2 = (AC2 * B6) / (1 << 11)
+        X1 = Math.idiv((B2 * Math.idiv(B6 * B6, (1 << 12))), (1 << 11))
+        X2 = Math.idiv(AC2 * B6, (1 << 11))
         X3 = X1 + X2
-        B3 = ((AC1 * 4 + X3) + 2) / 4
-        X1 = AC3 * B6 / (1 << 13)
-        X2 = (B1 * (B6 * B6 / (1 << 12))) / (1 << 16)
-        X3 = (X1 + X2 + 2) / 4
-        B4 = AC4 * (X3 + 32768) / (1 << 15)
+        B3 = Math.idiv((AC1 * 4 + X3) + 2, 4)
+        X1 = Math.idiv(AC3 * B6, (1 << 13))
+        X2 = Math.idiv(B1 * Math.idiv(B6 * B6, (1 << 12)), (1 << 16))
+        X3 = Math.idiv((X1 + X2 + 2), 4)
+        B4 = Math.idiv(AC4 * (X3 + 32768), (1 << 15))
         B7 = (UP - B3) * 50000
-        _p = (B7 / B4) * 2
-        X1 = (_p / (1 << 8)) * (_p / (1 << 8))
-        X1 = (X1 * 3038) / (1 << 16)
-        X2 = (-7357 * _p) / (1 << 16)
-        P = _p + (X1 + X2 + 3791) / 16
+        _p = Math.idiv(B7, B4) * 2
+        X1 = Math.idiv(_p, (1 << 8)) * Math.idiv(_p, (1 << 8))
+        X1 = Math.idiv((X1 * 3038), (1 << 16))
+        X2 = Math.idiv((-7357 * _p), (1 << 16))
+        P = _p + Math.idiv(X1 + X2 + 3791, 16)
     }
 
     /**
