@@ -93,9 +93,9 @@ namespace BMP180 {
     /**
      * get temperature
      */
-    //% blockId="BMP180_GET_TEMPERATURE" block="get temperature"
+    //% blockId="BMP180_GET_TEMPERATURE" block="temperature"
     //% weight=80 blockGap=8
-    export function Temperature(): number {
+    export function temperature(): number {
         get();
         return T;
     }
@@ -103,9 +103,9 @@ namespace BMP180 {
     /**
      * get pressure
      */
-    //% blockId="BMP180_GET_PRESSURE" block="get pressure"
+    //% blockId="BMP180_GET_PRESSURE" block="pressure"
     //% weight=80 blockGap=8
-    export function Press(): number {
+    export function press(): number {
         get();
         return P;
     }
