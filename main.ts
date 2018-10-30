@@ -70,6 +70,7 @@ namespace BMP180 {
 
     function get(): void {
         measure()
+
         X1 = Math.idiv((UT - AC6) * AC5, (1 << 15))
         X2 = Math.idiv(MC * (1 << 11), (X1 + MD))
         B5 = X1 + X2
@@ -89,9 +90,9 @@ namespace BMP180 {
         X1 = Math.idiv((X1 * 3038), (1 << 16))
         X2 = Math.idiv((-7357 * _p), (1 << 16))
         P = _p + Math.idiv(X1 + X2 + 3791, 16)
-        A = 500
-        /*A = 44330*(1-Math.pow(((P/25600)/1013.25), 0.1903))*/
-        /*A=44330 *(1-(P/1013.25)**0.1903)*/
+        A = P+5
+        /*A = 44330*(1-Math.pow(((P/25600)/1013.25), 0.1903))
+        A=44330 *(1-(P/1013.25)**0.1903)*/
 
     }
 
