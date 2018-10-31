@@ -44,7 +44,7 @@ namespace BMP180 {
     let MB = getInt16BE(0xBA)
     let MC = getInt16BE(0xBC)
     let MD = getInt16BE(0xBE)
-    let UT = 0
+     let UT = 0
     let UP = 0
     let T = 0
     let P = 0
@@ -54,7 +54,7 @@ namespace BMP180 {
     let B3 = 0
     let B4 = 0
     let B5 = 0
-    let B6 = 0
+     let B6 = 0
     let B7 = 0
     let _p = 0
     let A = 0
@@ -64,7 +64,7 @@ namespace BMP180 {
         basic.pause(6)
         UT = getUInt16BE(0xF6)
         setreg(0xF4, 0x34)
-        basic.pause(6)
+         basic.pause(6)
         UP = getUInt16BE(0xF6)
     }
 
@@ -74,7 +74,7 @@ namespace BMP180 {
         X1 = Math.idiv((UT - AC6) * AC5, (1 << 15))
         X2 = Math.idiv(MC * (1 << 11), (X1 + MD))
         B5 = X1 + X2
-        T = Math.idiv((B5 + 8), 160)
+         T = Math.idiv((B5 + 8), 160)
         B6 = B5 - 4000
         X1 = Math.idiv((B2 * Math.idiv(B6 * B6, (1 << 12))), (1 << 11))
         X2 = Math.idiv(AC2 * B6, (1 << 11))
@@ -90,8 +90,9 @@ namespace BMP180 {
         X1 = Math.idiv((X1 * 3038), (1 << 16))
         X2 = Math.idiv((-7357 * _p), (1 << 16))
         P = _p + Math.idiv(X1 + X2 + 3791, 16)
-
+        P=P/100 //convert to Hpa
         /*A = 44330*(1-Math.pow(((P/25600)/1013.25), 0.1903))*/
+        //calc using barometic formulea
         A=44330 *(1-(P/1013.25)**0.1903)
 
     }
