@@ -13,7 +13,7 @@ Date:   2018.Jun
 
 open your microbit makecode project, in Add Package, paste  
 
-https://github.com/microbit-makecode-packages/BMP180  
+https://github.com/damianburrin/BMP180
 
 to search box then search.
 
@@ -28,6 +28,9 @@ get pressure in hpa
 
 - function temperature()  
 return temperature in Celsius.
+
+-function altitude()
+return altitude in meters based on barometric formula
 
 
 ## Demo
